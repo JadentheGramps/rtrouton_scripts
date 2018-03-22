@@ -32,14 +32,14 @@ DisableOffice2016FirstRun(){
    # This function will disable the first run dialog windows for all Office 2016 apps.
    # It will also set the desired diagnostic info settings for Office application.
 
-   /usr/bin/defaults write /Library/Preferences/com.microsoft."$app" kSubUIAppCompletedFirstRunSetup1507 -bool true
-   /usr/bin/defaults write /Library/Preferences/com.microsoft."$app" SendAllTelemetryEnabled -bool "$submit_diagnostic_data_to_microsoft"
+   /usr/bin/defaults write $USER/Library/Preferences/com.microsoft."$app" kSubUIAppCompletedFirstRunSetup1507 -bool true
+   /usr/bin/defaults write $USER/Library/Preferences/com.microsoft."$app" SendAllTelemetryEnabled -bool "$submit_diagnostic_data_to_microsoft"
 
    # Outlook and OneNote require one additional first run setting to be disabled
 
    if [[ $app == "Outlook" ]] || [[ $app == "onenote.mac" ]]; then
 
-     /usr/bin/defaults write /Library/Preferences/com.microsoft."$app" FirstRunExperienceCompletedO15 -bool true
+     /usr/bin/defaults write $USER/Library/Preferences/com.microsoft."$app" FirstRunExperienceCompletedO15 -bool true
 
    fi
 
